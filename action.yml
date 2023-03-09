@@ -1,0 +1,18 @@
+name: 'Badge To Path'
+description: 'Description of my action'
+inputs:
+  github-token:
+    description: 'GitHub token'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - id: install-jbang
+      run: curl -Ls https://sh.jbang.dev | bash -s - app setup
+      shell: bash
+    - id: action
+      run: ~/.jbang/bin/jbang --repos 'github=https://maven.pkg.github.com/janpk/badge-to-path.git/' --repos 'mavencentral' dev.hagastua.action.badgetopath:999-SNAPSHOT
+      shell: bash
+      env:
+        JSON_INPUTS: ${{ toJSON(inputs) }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
