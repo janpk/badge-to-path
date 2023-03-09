@@ -1,8 +1,20 @@
 name: 'Badge To Path'
 description: 'Description of my action'
 inputs:
+  label:
+    description: The left label of the badge, usually static.
+    default: ':label'
+    required: false
+  status:
+    description: The right status as the badge, usually based on results.
+    default: ':status'
+    required: false
+  path:
+    description: Output image path.
+    default: badge.svg
+    required: true
   github-token:
-    description: 'GitHub token'
+    description: GitHub token
     required: true
 runs:
   using: "composite"

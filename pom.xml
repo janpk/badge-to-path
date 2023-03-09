@@ -8,6 +8,7 @@
   <name>Badge To Path</name>
   <description>Generate a badge and write to path</description>
   <properties>
+    <assertj.version>3.24.2</assertj.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <kotlin.version>1.8.0</kotlin.version>
     <maven.compiler.release>17</maven.compiler.release>
@@ -45,8 +46,9 @@
       <artifactId>quarkus-arc</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <groupId>io.github.dsibilio</groupId>
+      <artifactId>badge-maker</artifactId>
+      <version>1.0.3</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -65,6 +67,18 @@
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>kotlin-extensions</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkiverse.githubaction</groupId>
+      <artifactId>quarkus-github-action-testing</artifactId>
+      <version>1.0.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
