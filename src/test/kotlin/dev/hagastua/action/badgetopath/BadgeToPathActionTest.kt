@@ -19,11 +19,15 @@ import org.junit.jupiter.api.Test
 @TestProfile(BadgeToPathActionTest.BadgeToPathActionTestProfile::class)
 class BadgeToPathActionTest {
 
+  val fileName = "target/test.svg"
+
   @Test
   @Launch(value = [])
   fun testLaunchCommand(result: LaunchResult) {
-    File("target/test.svg").deleteOnExit()
-    assertThat(File("target/test.svg")).exists()
+    File(fileName).deleteOnExit()
+    assertThat(File(fileName)).exists()
+    assertThat(File(fileName).readText()).contains("fill=\"#007ec6\"")
+    assertThat(File(fileName).readText()).contains("fill=\"#9f9f9f\"")
   }
 
   class BadgeToPathActionTestProfile : QuarkusTestProfile {
@@ -39,6 +43,6 @@ class MockInputsInitializer : InputsInitializer {
   override fun createInputs(): Inputs {
     return DefaultTestInputs(
         mapOf<String, String>(
-            Pair("label", "test"), Pair("status", "134"), Pair("path", "target/test.svg")))
+            Pair("label", "test"), Pair("message", "134"), Pair("path", "target/test.svg")))
   }
 }

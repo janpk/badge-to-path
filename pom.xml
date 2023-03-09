@@ -46,9 +46,9 @@
       <artifactId>quarkus-arc</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.github.dsibilio</groupId>
-      <artifactId>badge-maker</artifactId>
-      <version>1.0.3</version>
+      <groupId>org.silentsoft</groupId>
+      <artifactId>badge4j</artifactId>
+      <version>1.11.0</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>

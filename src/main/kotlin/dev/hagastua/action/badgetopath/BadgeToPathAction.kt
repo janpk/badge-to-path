@@ -1,27 +1,19 @@
 package dev.hagastua.action.badgetopath
 
-import io.github.dsibilio.badgemaker.core.BadgeFormatBuilder
-import io.github.dsibilio.badgemaker.core.BadgeMaker
-import io.github.dsibilio.badgemaker.model.NamedColor
 import io.quarkiverse.githubaction.Action
 import io.quarkiverse.githubaction.Inputs
+import org.silentsoft.badge4j.Badge
 import java.io.File
 
 open class BadgeToPathAction {
   @Action
   fun action(inputs: Inputs) {
-
-    val label = inputs.getRequired("label")
-    val status = inputs.getRequired("status")
-    val path = inputs.getRequired("path")
-
-    val badge =
-        BadgeMaker.makeBadge(
-            BadgeFormatBuilder(status)
-                .withLabel(label)
-                .withLabelColor(NamedColor.BLUE)
-                .withMessageColor(NamedColor.GREY)
-                .build())
-    File(path).writeText(badge)
+    val badge = Badge.builder()
+      .message(inputs.getRequired("message"))
+                .label(inputs.getRequired("label"))
+                .labelColor(inputs.get("labelColor").orElse("#007ec6"))
+                .color(inputs.get("messageColor").orElse("#9f9f9f"))
+                .build()
+    File(inputs.getRequired("path")).writeText(badge)
   }
 }
