@@ -2,24 +2,43 @@
 
 > Generate a badge and write to path
 
-A badge generator action written in [Kotlin](https://kotlinlang.org/) powered by [Quarkus GitHub Action](https://github.com/quarkiverse/quarkus-github-action). Internally it uses the [Badge4j](https://github.com/silentsoft/badge4j) library to generate the svg badges.
+A badge generator action written in [Kotlin](https://kotlinlang.org/) powered
+by [Quarkus GitHub Action](https://github.com/quarkiverse/quarkus-github-action). Internally it uses
+the [Badge4j](https://github.com/silentsoft/badge4j) library to generate the svg badges.
 
-This badge generator started as an experiment of utilizing the [Quarkus]() framework and [Kotlin]() to create GitHub Actions with the least amount of effort and code.
+This badge generator started as an experiment of utilizing the [Quarkus]() framework and [Kotlin]()
+to create GitHub Actions with the least amount of effort and code.
 
-The action was created for the specific usecase of saving the generated badge into a dedicated branch of the target repository. See Example Usage for more details.
+The action was created for the specific usecase of saving the generated badge into a dedicated
+branch of the target repository. See Example Usage for more details.
 
 ## Usage
 
+![](docfiles/default.svg)
+
 ### Inputs
 
-|Parameter|Mandatory| Default Value | Description                                             |
-|---------|---------|------|---------------------------------------------------------|
-|`label`|true| :label | The left label of the badge, usually static             |
-| `message`|true| :message | The right status of the badge, usually based on results |
-|`labelColor`|false| #007ec6 | The color for the label part of the badge               |
-|`messageColor`|false| #9f9f9f | The color for the message part of the badge             |
-| `path`|true|      | Output image path|
-|`github-token`|true|      | Github Token                                            |
+| Parameter      | Mandatory | Default Value | Description                                                                         |
+|----------------|-----------|---------------|-------------------------------------------------------------------------------------|
+| `style`        | false     | flat          | The style to apply to the badge [**flat,flat-square,for-the-badge,plastic,social**] |
+| `label`        | true      |               | The left label of the badge, usually static                                         |
+| `message`      | true      |               | The right status of the badge, usually based on results                             |
+| `labelColor`   | false     | #007ec6       | The color for the label part of the badge                                           |
+| `messageColor` | false     | #9f9f9f       | The color for the message part of the badge                                         |
+| `path`         | true      |               | Output image path                                                                   |
+| `github-token` | true      |               | Github Token                                                                        |
+
+#### Styles
+
+| Style         | Example                       |
+|---------------|-------------------------------|
+| flat          | ![](docfiles/flat.svg)        |
+| flat-square   | ![](docfiles/flat-square.svg) |
+| for-the-badge | ![](docfiles/forthebadge.svg) |
+| plastic       | ![](docfiles/plastic.svg)     |
+| social        | ![](docfiles/social.svg)      |
+
+#### Colors
 
 ### Outputs
 
@@ -36,6 +55,7 @@ with:
   messageColor: 'grey'
   path: 'badges/loc.svg'
 ```
+
 ### Incorporating Into a Workflow
 
 ```yaml
@@ -44,20 +64,26 @@ with:
 
 ### Creating a dedicated branch for badges
 
-I have found that having a dedicated branch to keep generated badges work the best for me. To create an empty branch 
+I have found that having a dedicated branch to keep generated badges work the best for me. To create
+an empty branch
+
 ```bash
 git checkout --orphan <branchname>
 
 git rm -rf .
 ```
-That gets rid of all the files tracked by git from the branch. In addition there you might have some files that are not tracked by git that you want to remove since the second command above probably removed the .gitignore file from the branch.
+
+That gets rid of all the files tracked by git from the branch. In addition there you might have some
+files that are not tracked by git that you want to remove since the second command above probably
+removed the .gitignore file from the branch.
 
 ```bash
 rm <some lingering file>
 rm -Rf <some lingering directory>
 ```
 
-After this you should probably add a README.md file to the branch to remind anyone who might stop by the purpose of the branch. Then you add the file(s) you want, commit and push
+After this you should probably add a README.md file to the branch to remind anyone who might stop by
+the purpose of the branch. Then you add the file(s) you want, commit and push
 
 ```bash
 git add .
@@ -66,7 +92,10 @@ git commit -m "commit message"
 
 git push -u origin <branchname>
 ```
-If you want to write generates badges to this branch, you need to check out the branch in your workflow job
+
+If you want to write generates badges to this branch, you need to check out the branch in your
+workflow job
+
 ```yaml
 jobs:
   build:
@@ -79,6 +108,7 @@ jobs:
           ref: badges
           path: badges
 ```
+
 you can then specify the path in the badge-to-path action like
 
 ```yaml
@@ -106,13 +136,18 @@ and then you need to remember adding a commit step to your job like
             git push
           fi
 ```
+
 ## Developer Related
 
-When pushing to the `main` branch, the GitHub Action artifact is automatically published to the Maven repository of this GitHub repository.
+When pushing to the `main` branch, the GitHub Action artifact is automatically published to the
+Maven repository of this GitHub repository.
 
-The `action.yml` descriptor instructs GitHub Actions to run this published artifact using JBang when the action is executed.
+The `action.yml` descriptor instructs GitHub Actions to run this published artifact using JBang when
+the action is executed.
 
 ## Related Guides
 
-- GitHub Action ([guide](https://quarkiverse.github.io/quarkiverse-docs/quarkus-github-action/dev/index.html)): Develop GitHub Actions in Java with Quarkus
+- GitHub
+  Action ([guide](https://quarkiverse.github.io/quarkiverse-docs/quarkus-github-action/dev/index.html)):
+  Develop GitHub Actions in Java with Quarkus
 - Kotlin ([guide](https://quarkus.io/guides/kotlin)): Write your services in Kotlin

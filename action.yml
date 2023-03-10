@@ -2,6 +2,10 @@ name: 'Badge To Path'
 author: 'Jan-Petter Krüger'
 description: 'A simple action that creates and writes a badge to a specified path'
 inputs:
+  style:
+    description: The style to apply to the badge
+    default: 'flat'
+    required: false
   label:
     description: The left label of the badge, usually static.
     default: ':label'
