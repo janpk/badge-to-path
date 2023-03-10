@@ -5,14 +5,13 @@ inputs:
   label:
     description: The left label of the badge, usually static.
     default: ':label'
-    required: false
+    required: true
   message:
-    description: The right status as the badge, usually based on results.
-    default: ':status'
-    required: false
+    description: The right status of the badge, usually based on results.
+    default: ':message'
+    required: true
   path:
     description: Output image path.
-    default: badge.svg
     required: true
   labelColor:
     description: The color for the label part of the badge
