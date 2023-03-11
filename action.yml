@@ -16,7 +16,7 @@ inputs:
     required: true
   path:
     description: Output image path.
-    required: true
+    required: false
   labelColor:
     description: The color for the label part of the badge
     default: '#007ec6'

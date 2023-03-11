@@ -6,6 +6,7 @@ import io.quarkiverse.githubaction.Inputs
 import java.io.File
 import org.silentsoft.badge4j.Badge
 import org.silentsoft.badge4j.Style
+import kotlin.jvm.optionals.getOrNull
 
 open class BadgeToPathAction {
 
@@ -20,7 +21,9 @@ open class BadgeToPathAction {
               .labelColor(inputs.get("labelColor").orElse("#007ec6"))
               .color(inputs.get("messageColor").orElse("#9f9f9f"))
               .build()
-      File(inputs.getRequired("path")).writeText(badgesrc)
+      if (inputs.get("path").isPresent) {
+        File(inputs.get("path").get()).writeText(badgesrc)
+      }
       commands.setOutput("badge-src", badgesrc)
     } catch (e: IllegalStateException) {
       println("[ERROR] ${e.message}")
