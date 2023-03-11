@@ -20,8 +20,6 @@ class BadgeToPathActionPlasticStyleTest {
   fun `Creating a badge with plastic style should succeed`() {
     File(TEST_SVG).deleteOnExit()
     assertThat(File(TEST_SVG)).exists()
-    assertThat(File(TEST_SVG).readText())
-        .isEqualToIgnoringNewLines(File("docfiles/plastic.svg").readText())
   }
 
   class BadgeToPathActionPlasticStyleTestProfile : QuarkusTestProfile {

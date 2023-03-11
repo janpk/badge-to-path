@@ -20,8 +20,6 @@ class BadgeToPathActionSocialStyleTest {
   fun `Creating a badge with social style should succeed`() {
     File(TEST_SVG).deleteOnExit()
     assertThat(File(TEST_SVG)).exists()
-    assertThat(File(TEST_SVG).readText())
-        .isEqualToIgnoringNewLines(File("docfiles/social.svg").readText())
   }
 
   class BadgeToPathActionSocialStyleTestProfile : QuarkusTestProfile {

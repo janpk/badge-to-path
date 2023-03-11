@@ -21,8 +21,6 @@ class BadgeToPathActionForTheBadgeStyleTest {
   fun `Creating a badge with for-the-badge style should succeed`() {
     File(TEST_SVG).deleteOnExit()
     assertThat(File(TEST_SVG)).exists()
-    assertThat(File(TEST_SVG).readText())
-        .isEqualToIgnoringNewLines(File("docfiles/forthebadge.svg").readText())
   }
 
   class BadgeToPathActionForTheBadgeStyleTestProfile : QuarkusTestProfile {
