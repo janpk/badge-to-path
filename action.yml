@@ -25,6 +25,12 @@ inputs:
     description: The color for the message part of the badge
     default: '#9f9f9f'
     required: false
+  logo:
+    description: A logo to add to the generated badge
+    required: false
+  logoWidth:
+    description: The width of the logo if you would like something other than the default
+    required: false
   link:
     description: A link to add to the generated badge
     required: false

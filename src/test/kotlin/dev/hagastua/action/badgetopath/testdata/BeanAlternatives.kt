@@ -39,6 +39,16 @@ class MockInputsInitializerLinks : InputsInitializer {
 
 @Alternative
 @Singleton
+class MockInputsInitializerLogo : InputsInitializer {
+  override fun createInputs(): Inputs {
+    return DefaultTestInputs(
+        mapOf<String, String>(
+            Pair("label", "hello"), Pair("message", "world"), Pair("path", TEST_SVG), Pair("logo", "github")))
+  }
+}
+
+@Alternative
+@Singleton
 class MockInputsInitializerNoMessageValue : InputsInitializer {
   override fun createInputs(): Inputs {
     return DefaultTestInputs(mapOf<String, String>(Pair("label", "hello"), Pair("path", TEST_SVG)))
