@@ -4,7 +4,9 @@
 
 A badge generator action written in [Kotlin](https://kotlinlang.org/) powered
 by [Quarkus GitHub Action](https://github.com/quarkiverse/quarkus-github-action). Internally it uses
-the [Badge4j](https://github.com/silentsoft/badge4j) library to generate the svg badges. This means that all styles, colors and logos supported by the [Badge4j](https://github.com/silentsoft/badge4j) library is supported by this action 
+the [Badge4j](https://github.com/silentsoft/badge4j) library to generate the svg badges. This means
+that all styles, colors and logos supported by the [Badge4j](https://github.com/silentsoft/badge4j)
+library is supported by this action
 
 This badge generator started as an experiment of utilizing the [Quarkus]() framework and [Kotlin]()
 to create GitHub Actions with the least amount of effort and code.
@@ -25,7 +27,8 @@ branch of the target repository. See Example Usage for more details.
 | `message`      | true      |               | The right status of the badge, usually based on results                             |
 | `labelColor`   | false     | #007ec6       | The color for the label part of the badge                                           |
 | `messageColor` | false     | #9f9f9f       | The color for the message part of the badge                                         |
-| `path`         | true      |               | Output image path                                                                   |
+| `link`         | false     |               | Optional link to add to the badge                                                   |
+| `path`         | false     |               | Output image path                                                                   |
 | `github-token` | true      |               | Github Token                                                                        |
 
 #### Styles
@@ -59,24 +62,24 @@ The named colors supported are
 ![](docfiles/color-informational.svg)
 ![](docfiles/color-inactive.svg)
 
-In addition, 
+In addition,
 
 - Any valid [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
-  - named color
-    - ![](docfiles/color-black.svg)
-    - ![](docfiles/color-rebeccapurple.svg)
-    - etc.
-  - hexadecimal numbers
-    - ![](docfiles/color-ff69b4.svg)
-    - ![](docfiles/color-9cf.svg)
-    - etc.
-  - rgb[a](red, green, blue[, opacity])
-  - cmyk[a](cyan, magenta, yellow, black[, opacity])
-  - hsl[a](hue, saturation, lightness[, opacity])
+    - named color
+        - ![](docfiles/color-black.svg)
+        - ![](docfiles/color-rebeccapurple.svg)
+        - etc.
+    - hexadecimal numbers
+        - ![](docfiles/color-ff69b4.svg)
+        - ![](docfiles/color-9cf.svg)
+        - etc.
+    - rgb[a](red, green, blue[, opacity])
+    - cmyk[a](cyan, magenta, yellow, black[, opacity])
+    - hsl[a](hue, saturation, lightness[, opacity])
 
 ### Outputs
 
-No outputs as of now.
+`badge-src` - The generated badge svg in xml format
 
 ## Example Usage
 
