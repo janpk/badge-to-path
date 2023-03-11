@@ -28,6 +28,10 @@ inputs:
   github-token:
     description: GitHub token
     required: true
+outputs:
+  badge-src:
+    description: The badge svg xml source
+    value: ${{steps.action.outputs.badge-src}}
 runs:
   using: "composite"
   steps:

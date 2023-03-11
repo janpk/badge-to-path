@@ -1,13 +1,14 @@
 package dev.hagastua.action.badgetopath
 
+import dev.hagastua.action.badgetopath.testdata.MockCommandsInitializer
 import dev.hagastua.action.badgetopath.testdata.MockInputsInitializerNoValues
 import io.quarkus.test.junit.QuarkusTestProfile
 import io.quarkus.test.junit.TestProfile
 import io.quarkus.test.junit.main.Launch
 import io.quarkus.test.junit.main.LaunchResult
 import io.quarkus.test.junit.main.QuarkusMainTest
-import org.junit.jupiter.api.Test
 import java.util.*
+import org.junit.jupiter.api.Test
 
 @QuarkusMainTest
 @TestProfile(BadgeToPathActionNoValuesTest.BadgeToPathActionNoValuesTestProfile::class)
@@ -21,7 +22,8 @@ class BadgeToPathActionNoValuesTest {
 
   class BadgeToPathActionNoValuesTestProfile : QuarkusTestProfile {
     override fun getEnabledAlternatives(): MutableSet<Class<*>> {
-      return Collections.singleton(MockInputsInitializerNoValues::class.java)
+      return mutableSetOf(
+          MockInputsInitializerNoValues::class.java, MockCommandsInitializer::class.java)
     }
   }
 }

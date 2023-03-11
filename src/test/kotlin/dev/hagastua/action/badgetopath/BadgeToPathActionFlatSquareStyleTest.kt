@@ -1,15 +1,16 @@
 package dev.hagastua.action.badgetopath
 
+import dev.hagastua.action.badgetopath.testdata.MockCommandsInitializer
 import dev.hagastua.action.badgetopath.testdata.MockInputsInitializerFlatSquare
 import dev.hagastua.action.badgetopath.testdata.TEST_SVG
 import io.quarkus.test.junit.QuarkusTestProfile
 import io.quarkus.test.junit.TestProfile
 import io.quarkus.test.junit.main.Launch
 import io.quarkus.test.junit.main.QuarkusMainTest
-import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Test
 import java.io.File
 import java.util.*
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
 
 @QuarkusMainTest
 @TestProfile(
@@ -25,7 +26,8 @@ class BadgeToPathActionFlatSquareStyleTest {
 
   class BadgeToPathActionFlatSquareStyleTestProfile : QuarkusTestProfile {
     override fun getEnabledAlternatives(): MutableSet<Class<*>> {
-      return Collections.singleton(MockInputsInitializerFlatSquare::class.java)
+      return mutableSetOf(
+          MockInputsInitializerFlatSquare::class.java, MockCommandsInitializer::class.java)
     }
   }
 }

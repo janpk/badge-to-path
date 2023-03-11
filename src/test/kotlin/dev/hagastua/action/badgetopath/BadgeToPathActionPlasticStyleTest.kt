@@ -1,5 +1,6 @@
 package dev.hagastua.action.badgetopath
 
+import dev.hagastua.action.badgetopath.testdata.MockCommandsInitializer
 import dev.hagastua.action.badgetopath.testdata.MockInputsInitializerPlastic
 import dev.hagastua.action.badgetopath.testdata.TEST_SVG
 import io.quarkus.test.junit.QuarkusTestProfile
@@ -24,7 +25,8 @@ class BadgeToPathActionPlasticStyleTest {
 
   class BadgeToPathActionPlasticStyleTestProfile : QuarkusTestProfile {
     override fun getEnabledAlternatives(): MutableSet<Class<*>> {
-      return Collections.singleton(MockInputsInitializerPlastic::class.java)
+      return mutableSetOf(
+          MockInputsInitializerPlastic::class.java, MockCommandsInitializer::class.java)
     }
   }
 }

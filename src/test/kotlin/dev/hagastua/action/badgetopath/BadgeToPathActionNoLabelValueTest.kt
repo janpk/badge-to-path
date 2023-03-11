@@ -1,5 +1,6 @@
 package dev.hagastua.action.badgetopath
 
+import dev.hagastua.action.badgetopath.testdata.MockCommandsInitializer
 import dev.hagastua.action.badgetopath.testdata.MockInputsInitializerNoLabelValue
 import io.quarkus.test.junit.QuarkusTestProfile
 import io.quarkus.test.junit.TestProfile
@@ -21,7 +22,8 @@ class BadgeToPathActionNoLabelValueTest {
 
   class BadgeToPathActionNoLabelValueTestProfile : QuarkusTestProfile {
     override fun getEnabledAlternatives(): MutableSet<Class<*>> {
-      return Collections.singleton(MockInputsInitializerNoLabelValue::class.java)
+      return mutableSetOf(
+          MockInputsInitializerNoLabelValue::class.java, MockCommandsInitializer::class.java)
     }
   }
 }

@@ -1,8 +1,17 @@
 package dev.hagastua.action.badgetopath.testdata
 
+import io.quarkiverse.githubaction.Commands
+import io.quarkiverse.githubaction.CommandsInitializer
 import io.quarkiverse.githubaction.Inputs
 import io.quarkiverse.githubaction.InputsInitializer
+import io.quarkiverse.githubaction.runtime.CommandsImpl
+import io.quarkiverse.githubaction.runtime.github.EnvFiles
 import io.quarkiverse.githubaction.testing.DefaultTestInputs
+import java.io.IOException
+import java.io.UncheckedIOException
+import java.nio.file.Files
+import java.nio.file.Path
+import java.util.Map
 import javax.enterprise.inject.Alternative
 import javax.inject.Singleton
 
@@ -114,5 +123,20 @@ class MockInputsInitializerSocial : InputsInitializer {
             Pair("label", "hello"),
             Pair("message", "world"),
             Pair("path", TEST_SVG)))
+  }
+}
+
+@Alternative
+@Singleton
+class MockCommandsInitializer : CommandsInitializer {
+  override fun createCommands(): Commands {
+    return try {
+      val githubOutputPath: Path =
+        Path.of(System.getProperty("java.io.tmpdir") + "/temp-github-output.txt")
+      Files.deleteIfExists(githubOutputPath)
+      CommandsImpl(Map.of(EnvFiles.GITHUB_OUTPUT, githubOutputPath.toString()))
+    } catch (e: IOException) {
+      throw UncheckedIOException(e)
+    }
   }
 }
