@@ -4,7 +4,7 @@
 
 A badge generator action written in [Kotlin](https://kotlinlang.org/) powered
 by [Quarkus GitHub Action](https://github.com/quarkiverse/quarkus-github-action). Internally it uses
-the [Badge4j](https://github.com/silentsoft/badge4j) library to generate the svg badges.
+the [Badge4j](https://github.com/silentsoft/badge4j) library to generate the svg badges. This means that all styles, colors and logos supported by the [Badge4j](https://github.com/silentsoft/badge4j) library is supported by this action 
 
 This badge generator started as an experiment of utilizing the [Quarkus]() framework and [Kotlin]()
 to create GitHub Actions with the least amount of effort and code.
@@ -39,6 +39,40 @@ branch of the target repository. See Example Usage for more details.
 | social        | ![](docfiles/social.svg)      |
 
 #### Colors
+
+The named colors supported are
+
+![](docfiles/color-brightgreen.svg)
+![](docfiles/color-green.svg)
+![](docfiles/color-yellow.svg)
+![](docfiles/color-yellowgreen.svg)
+![](docfiles/color-orange.svg)
+![](docfiles/color-red.svg)
+![](docfiles/color-blue.svg)
+![](docfiles/color-grey.svg)
+![](docfiles/color-lightgrey.svg)
+![](docfiles/color-gray.svg)
+![](docfiles/color-lightgray.svg)
+![](docfiles/color-critical.svg)
+![](docfiles/color-important.svg)
+![](docfiles/color-success.svg)
+![](docfiles/color-informational.svg)
+![](docfiles/color-inactive.svg)
+
+In addition, 
+
+- Any valid [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
+  - named color
+    - ![](docfiles/color-black.svg)
+    - ![](docfiles/color-rebeccapurple.svg)
+    - etc.
+  - hexadecimal numbers
+    - ![](docfiles/color-ff69b4.svg)
+    - ![](docfiles/color-9cf.svg)
+    - etc.
+  - rgb[a](red, green, blue[, opacity])
+  - cmyk[a](cyan, magenta, yellow, black[, opacity])
+  - hsl[a](hue, saturation, lightness[, opacity])
 
 ### Outputs
 
