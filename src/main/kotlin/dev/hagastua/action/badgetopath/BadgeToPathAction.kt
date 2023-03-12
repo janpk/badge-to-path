@@ -3,6 +3,7 @@ package dev.hagastua.action.badgetopath
 import io.quarkiverse.githubaction.Action
 import io.quarkiverse.githubaction.Commands
 import io.quarkiverse.githubaction.Inputs
+import io.quarkus.logging.Log
 import java.io.File
 import org.silentsoft.badge4j.Badge
 import org.silentsoft.badge4j.Style
@@ -14,8 +15,15 @@ open class BadgeToPathAction {
     try {
       val link: String? = if (inputs.get("link").isPresent) inputs.get("link").get() else null
       val logo: String? = if (inputs.get("logo").isPresent) inputs.get("logo").get() else null
-      val logoWidth: Int =
-          if (inputs.get("logoWidth").isPresent) inputs.getInteger("logoWidth").asInt else 0
+      var logoWidth = 0
+      try {
+        if (inputs.get("logoWidth").isPresent) {
+          logoWidth = inputs.getInteger("logoWidth").asInt
+        }
+      } catch (e: NumberFormatException) {
+        Log.error("logoWidth problem : $logoWidth", e)
+        logoWidth = 0
+      }
       val badgesrc =
           Badge.builder()
               .style(Style.nameOf(inputs.get("style").orElse("flat")))
@@ -32,7 +40,7 @@ open class BadgeToPathAction {
       }
       commands.setOutput("badge-src", badgesrc)
     } catch (e: IllegalStateException) {
-      println("[ERROR] ${e.message}")
+      Log.error("${e.message}")
       throw e
     }
   }
