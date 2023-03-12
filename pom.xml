@@ -9,7 +9,7 @@
   <description>Generate a badge and write to path</description>
   <properties>
     <assertj.version>3.24.2</assertj.version>
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <compiler-plugin.version>3.11.0</compiler-plugin.version>
     <kotlin.version>1.8.0</kotlin.version>
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
