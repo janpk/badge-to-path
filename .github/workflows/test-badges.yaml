@@ -1,8 +1,13 @@
 name: Test Badges
 
 on:
-  registry_package:
-    types: [published]
+  workflow_dispatch:
+    branches:
+      - main
+  repository_dispatch:
+    branches:
+      - main
+    types: [ test-badges-event ]
 
 jobs:
   create-badges:
