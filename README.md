@@ -97,9 +97,7 @@ with:
 
 ### Incorporating Into a Workflow
 
-```yaml
-
-```
+For more extensive examples, please see the [badge-to-path-playground](https://github.com/janpk/badge-to-path-playground)
 
 ### Creating a dedicated branch for badges
 
