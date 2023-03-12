@@ -21,7 +21,7 @@
     <detekt.version>1.22.0</detekt.version>
     <spotless-maven-plugin.version>2.34.0</spotless-maven-plugin.version>
     <ktfmt.version>0.35</ktfmt.version>
-    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <surefire-plugin.version>3.0.0-M9</surefire-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
