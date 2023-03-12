@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     branches:
       - main
-  repository_dispatch:
-    branches:
-      - main
-    types: [ test-badges-event ]
+  workflow_run:
+    workflows: [ "Publish action artifact to GitHub project's Maven repository" ]
+    types:
+      - completed
 
 jobs:
   create-badges:
