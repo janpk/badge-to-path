@@ -85,6 +85,15 @@ In addition,
 
 ## Example Usage
 
+You need to setup java somewhere in the Job before the badge-to-path action is run.
+```yaml
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+```
+
 ```yaml
 uses: janpk/badge-to-path@v1
 with:
