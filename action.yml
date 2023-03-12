@@ -30,6 +30,7 @@ inputs:
     required: false
   logoWidth:
     description: The width of the logo if you would like something other than the default
+    default: '0'
     required: false
   link:
     description: A link to add to the generated badge
