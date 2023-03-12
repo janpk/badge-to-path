@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>dev.hagastua.action.badgetopath</groupId>
   <artifactId>badge-to-path</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>Badge To Path</name>
   <description>Generate a badge and write to path</description>
   <properties>
