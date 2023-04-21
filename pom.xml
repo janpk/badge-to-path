@@ -9,8 +9,8 @@
   <description>Generate a badge and write to path</description>
   <properties>
     <assertj.version>3.24.2</assertj.version>
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <kotlin.version>1.8.0</kotlin.version>
+    <compiler-plugin.version>3.11.0</compiler-plugin.version>
+    <kotlin.version>1.8.10</kotlin.version>
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -19,9 +19,9 @@
     <quarkus.platform.version>2.16.4.Final</quarkus.platform.version>
     <skipITs>true</skipITs>
     <detekt.version>1.22.0</detekt.version>
-    <spotless-maven-plugin.version>2.34.0</spotless-maven-plugin.version>
-    <ktfmt.version>0.35</ktfmt.version>
-    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <spotless-maven-plugin.version>2.36.0</spotless-maven-plugin.version>
+    <ktfmt.version>0.43</ktfmt.version>
+    <surefire-plugin.version>3.0.0-M9</surefire-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -38,7 +38,7 @@
     <dependency>
       <groupId>io.quarkiverse.githubaction</groupId>
       <artifactId>quarkus-github-action</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>

@@ -12,7 +12,9 @@ This badge generator started as an experiment of utilizing the [Quarkus]() frame
 to create GitHub Actions with the least amount of effort and code.
 
 The action was created for the specific usecase of saving the generated badge into a dedicated
-branch of the target repository. See Example Usage for more details.
+branch of the target repository. 
+
+See Example Usage for more details.
 
 ## Usage
 
